@@ -33,3 +33,10 @@ INSERT INTO authors (name) VALUES ("Douglas Adams");
 INSERT INTO authors (name) VALUES ("Ernest Cline");
 
 -- query table
+
+-- INNER JOIN
+SELECT Books.name, Books.genre, Authors.name
+AS "author_name"
+FROM Books
+INNER JOIN Authors
+ON Books.author_id = Authors.id;
