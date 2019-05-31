@@ -18,6 +18,9 @@ INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("The 
 INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("Harry Potter and the Prisoner of Azkaban", 1999, "Fantasy", 435, "Scholastic, Inc.", 2);
 INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("The Hitchhiker's Guide to the Galaxy", 1979, "Science Fiction", 224, "Pan Books", 4);
 INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("Ready Player One", 2011, "Science Fiction", 385, "Pan Books", 5);
+INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("The Tales of Beedle the Bard", 2008, "Fantasy", 180, NULL, 2);
+INSERT INTO books (name, year, genre, pages, publisher, author_id) VALUES ("Ender's Game", 1985, "Science Fiction", 324, "Tor Books", NULL);
+
 
 -- create authors table
 CREATE TABLE authors (
@@ -39,4 +42,23 @@ SELECT Books.name, Books.genre, Authors.name
 AS "author_name"
 FROM Books
 INNER JOIN Authors
+ON Books.author_id = Authors.id;
+
+-- LEFT OUTER JOIN
+SELECT Books.name, Books.genre, Authors.name
+AS "author_name"
+FROM Books
+LEFT OUTER JOIN Authors
+ON Books.author_id = Authors.id;
+
+-- RIGHT OUTER JOIN
+SELECT Books.name, Books.genre, Authors.name
+FROM Books
+RIGHT OUTER JOIN Authors
+ON Books.author_id = Authors.id;
+
+-- FULL OUTER JOIN
+SELECT Books.name, Books.genre, Authors.name
+FROM Books
+FULL OUTER JOIN Authors
 ON Books.author_id = Authors.id;
